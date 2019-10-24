@@ -55,26 +55,26 @@ class myUnet(object):
 
         up6 = Conv2D(512, 2, activation='relu', padding='same', kernel_initializer='he_normal')(
             UpSampling2D(size=(2, 2))(drop5))
-        merge6 = merge([drop4, up6], mode='concat', concat_axis=3)
+        concat6 = concatenate([drop4, up6], axis=3)
         print(up6)
-        print(merge6)
-        conv6 = Conv2D(512, 3, activation='relu', padding='same', kernel_initializer='he_normal')(merge6)
+        print(concat6)
+        conv6 = Conv2D(512, 3, activation='relu', padding='same', kernel_initializer='he_normal')(concat6)
         print(conv6)
         conv6 = Conv2D(512, 3, activation='relu', padding='same', kernel_initializer='he_normal')(conv6)
         print(conv6)
         up7 = Conv2D(256, 2, activation='relu', padding='same', kernel_initializer='he_normal')(
             UpSampling2D(size=(2, 2))(conv6))
-        merge7 = merge([conv3, up7], mode='concat', concat_axis=3)
+        concat7 = concatenate([conv3, up7], axis=3)
         print(up7)
-        print(merge7)
-        conv7 = Conv2D(256, 3, activation='relu', padding='same', kernel_initializer='he_normal')(merge7)
+        print(concat7)
+        conv7 = Conv2D(256, 3, activation='relu', padding='same', kernel_initializer='he_normal')(concat7)
         print(conv7)
         conv7 = Conv2D(256, 3, activation='relu', padding='same', kernel_initializer='he_normal')(conv7)
         print(conv7)
         up8 = Conv2D(128, 2, activation='relu', padding='same', kernel_initializer='he_normal')(
             UpSampling2D(size=(2, 2))(conv7))
-        merge8 = merge([conv2, up8], mode='concat', concat_axis=3)
-        conv8 = Conv2D(128, 3, activation='relu', padding='same', kernel_initializer='he_normal')(merge8)
+        concat8 = concatenate([conv2, up8], axis=3)
+        conv8 = Conv2D(128, 3, activation='relu', padding='same', kernel_initializer='he_normal')(concat8)
         conv8 = Conv2D(128, 3, activation='relu', padding='same', kernel_initializer='he_normal')(conv8)
 
         up9 = Conv2D(64, 2, activation='relu', padding='same', kernel_initializer='he_normal')(
