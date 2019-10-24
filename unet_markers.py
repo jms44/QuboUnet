@@ -105,6 +105,7 @@ class myUnet(object):
         print("got unet")
         model_checkpoint = ModelCheckpoint('unet_camvid.hdf5', monitor='loss', verbose=1, save_best_only=True)
         if os.path.exists("./unet_camvid.hdf5"):
+            print("USING PREVIOUS WEIGHTS")
             model.load_weights("./unet_camvid.hdf5")	
         print('Fitting model...')
         model.fit(imgs_train, imgs_mask_train, batch_size=1, epochs=50, verbose=1,
