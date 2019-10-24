@@ -79,10 +79,10 @@ class myUnet(object):
 
         up9 = Conv2D(64, 2, activation='relu', padding='same', kernel_initializer='he_normal')(
             UpSampling2D(size=(2, 2))(conv8))
-        merge9 = merge([conv1, up9], mode='concat', concat_axis=3)
+        concat9 = concatenate([conv1, up9], axis=3)
         print(up9)
-        print(merge9)
-        conv9 = Conv2D(64, 3, activation='relu', padding='same', kernel_initializer='he_normal')(merge9)
+        print(concat9)
+        conv9 = Conv2D(64, 3, activation='relu', padding='same', kernel_initializer='he_normal')(concat9)
         print(conv9)
         conv9 = Conv2D(64, 3, activation='relu', padding='same', kernel_initializer='he_normal')(conv9)
         print(conv9)
