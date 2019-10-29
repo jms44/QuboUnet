@@ -108,7 +108,7 @@ class myUnet(object):
             print("USING PREVIOUS WEIGHTS")
             model.load_weights("./unet_camvid.hdf5")	
         print('Fitting model...')
-        model.fit(imgs_train, imgs_mask_train, batch_size=10, epochs=500, verbose=1,
+        model.fit(imgs_train, imgs_mask_train, batch_size=8, epochs=500, verbose=1,
                   validation_split=0.1, shuffle=True, callbacks=[model_checkpoint])
 
         print('predict test data')
