@@ -27,7 +27,7 @@ opencv-contrib-python==4.0.0.21
 opencv-python==4.1.1.26
 pandas==0.25.1
 patsy==0.5.1
-Pillow==5.4.1
+Pillow==8.3.2
 progressbar2==3.39.2
 protobuf==3.6.1
 pycocotools==2.0.0
